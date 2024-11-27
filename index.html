@@ -24,14 +24,14 @@
     const token = null;
 
     if (code) {
-      // const requestOptions = {
-      //   method: "POST"
-      // };
-      // fetch("https://github.com/login/oauth/access_token?accept=application/json&client_id=Ov23ligh0gs1nNyZCySG&client_secret=83b7f02e74b01cde9880889c6f2635ca82ed3002&code=" + code, requestOptions)
-      //   .then((response) => response.text())
-      //   .then(data => {
-      //     console.log(data);
-      //   });
+      const requestOptions = {
+        method: "POST"
+      };
+      fetch("https://github.com/login/oauth/access_token?accept=application/json&client_id=Ov23ligh0gs1nNyZCySG&client_secret=83b7f02e74b01cde9880889c6f2635ca82ed3002&code=" + code, requestOptions)
+        .then((response) => response.text())
+        .then(data => {
+          console.log(data);
+        });
     }
     if (token) {
       fetch('https://api.github.com/user', {
