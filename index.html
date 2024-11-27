@@ -8,7 +8,7 @@
 <body>
   <h1>GitHub OAuth Login</h1>
 
-  <a href="https://github.com/login/oauth/authorize?client_id=Ov23liheZw8muRaLqpOn&scope=read:user&login=octopus-axonivy">
+  <a href="https://github.com/login/oauth/authorize?client_id=Ov23ligh0gs1nNyZCySG&scope=read:user">
     <button>Login with GitHub</button>
   </a>
 
@@ -27,7 +27,7 @@
       const requestOptions = {
         method: "POST"
       };
-      fetch("https://github.com/login/oauth/access_token?accept=application/json&client_id=Ov23liheZw8muRaLqpOn&client_secret=7b463bdea7d40331e1048fe4dcee6b0b60756360&code=" + code + "&redirect_uri=https%3A%2F%2Fndkhanh-axonivy.github.io%2Fsecurity-monitor%2F", requestOptions)
+      fetch("https://github.com/login/oauth/access_token?accept=application/json&client_id=Ov23ligh0gs1nNyZCySG&client_secret=83b7f02e74b01cde9880889c6f2635ca82ed3002&code=" + code, requestOptions)
         .then((response) => response.text())
         .then(data => {
           console.log(data);
