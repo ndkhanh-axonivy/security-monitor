@@ -20,7 +20,7 @@
   <script>
     // Check if an access token is in the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
+    const token = urlParams.get('code');
 
     if (token) {
       fetch('https://api.github.com/user', {
