@@ -8,7 +8,7 @@
 <body>
   <h1>GitHub OAuth Login</h1>
 
-  <a href="https://github.com/login/oauth/authorize?client_id=Ov23liheZw8muRaLqpOn&scope=read:user">
+  <a href="https://github.com/login/oauth/authorize?client_id=Ov23liheZw8muRaLqpOn&scope=read:user&login=octopus-axonivy">
     <button>Login with GitHub</button>
   </a>
 
@@ -20,8 +20,20 @@
   <script>
     // Check if an access token is in the URL
     const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('code');
+    const code = urlParams.get('code');
 
+    if (code) {
+      const requestOptions = {
+        method: "POST",
+        redirect: "follow"
+      };
+      fetch("https://github.com/login/oauth/access_token?accept=application/json&client_id=Ov23liVMliBxBqdQ7FnG&client_secret=97ee39cd07698bb95ead8b76ba25f2686a6cc7a6&code=Ov23liheZw8muRaLqpOn", requestOptions)
+        .then((response) => response.text())
+        .then(data => {
+          console.log(data);
+          ;
+        });
+    }
     if (token) {
       fetch('https://api.github.com/user', {
         headers: {
