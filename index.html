@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repository Security Monitor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
+    }
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      color: #333;
+    }
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    .repo-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+    }
+    .repo-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .repo-header h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #007acc;
+    }
+    .repo-header .visibility {
+      font-size: 0.85rem;
+      margin-left: 10px;
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid gray;
+    }
+    .repo-info {
+      margin-top: 15px;
+    }
+    .repo-info p {
+      margin: 8px 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .repo-info span {
+      font-weight: bold;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 7px;
+      font-size: 0.85rem;
+      border-radius: 5px;
+      color: #fff;
+    }
+    .badge.critical {
+      background-color: #e63946;
+    }
+    .badge.high {
+      background-color: #f4a261;
+    }
+    .badge.active {
+      background-color: #2a9d8f;
+    }
+    .badge.none {
+      background-color: #ccc;
+      color: #666;
+    }
+    /* Styling for inactive or zero values */
+    .inactive {
+      color: #bbb;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>GitHub Repository Security Monitor</h1>
+      <p>Keep track of your repositories' security status at a glance.</p>
+    </div>
+    <div class="repo-grid">
+      <!-- Example Repository Card 1 (Active Dependabot, No Alerts) -->
+      <div class="repo-card">
+        <div class="repo-header">
+          <h3>jira-cloud-connector</h3>
+          <span class="visibility">Public</span>
+        </div>
+        <div class="repo-info">
+          <p>🛡️ <span>Vulnerabilities:</span> <span class="badge critical">3 critical</span> <span class="badge high">2 high</span></p>
+          <p>🤖 <span>Dependabot:</span> <span class="badge active">No alerts</span></p>
+          <p>🔑 <span>Secrets Scanning:</span> <span class="badge active">Active</span></p>
+          <p>🚧 <span>Branch Protection:</span> <span class="badge active">Enabled</span></p>
+          <p>🔄 <span>Dependency Review:</span> <span class="badge active">Enabled</span></p>
+          <p>👥 <span>Collaborators:</span> 3 external, 5 internal</p>
+          <p>⏱️ <span>Last Commit:</span> 2 days ago</p>
+        </div>
+      </div>
+
+      <!-- Example Repository Card 2 (Dependabot Active with Alerts, Code Scanning Inactive) -->
+      <div class="repo-card">
+        <div class="repo-header">
+          <h3>hubspot-connector</h3>
+          <span class="visibility">Private</span>
+        </div>
+        <div class="repo-info">
+          <p>🛡️ <span>Vulnerabilities:</span> <span class="badge active">No vulnerabilities</span></p>
+          <p>🤖 <span>Dependabot:</span> <span class="badge high">2 alerts</span></p>
+          <p>🔑 <span>Secrets Scanning:</span> <span class="badge none">Inactive</span></p>
+          <p>🚧 <span>Branch Protection:</span> <span class="badge active">Enabled</span></p>
+          <p>🔄 <span>Dependency Review:</span> <span class="badge active">Enabled</span></p>
+          <p>👥 <span>Collaborators:</span> 3 external, 5 internal</p>
+          <p>⏱️ <span>Last Commit:</span> 2 days ago</p>
+        </div>
+      </div>
+
+      <!-- Example Repository Card 3 (Dependabot Inactive) -->
+      <div class="repo-card">
+        <div class="repo-header">
+          <h3>doc-factory</h3>
+          <span class="visibility">Public</span>
+        </div>
+        <div class="repo-info">
+          <p>🛡️ <span>Vulnerabilities:</span> <span class="badge high">1 high</span></p>
+          <p>🤖 <span>Dependabot:</span> <span class="badge none">Inactive</span></p>
+          <p>🔑 <span>Secrets Scanning:</span> <span class="badge active">Active</span></p>
+          <p>🚧 <span>Branch Protection:</span> <span class="badge active">Enabled</span></p>
+          <p>🔄 <span>Dependency Review:</span> <span class="badge active">Enabled</span></p>
+          <p>👥 <span>Collaborators:</span> 4 external, 2 internal</p>
+          <p>⏱️ <span>Last Commit:</span> 1 week ago</p>
+        </div>
+      </div>
+
+      <!-- Example Repository Card 4 (Active Dependabot with Alerts) -->
+      <div class="repo-card">
+        <div class="repo-header">
+          <h3>successfactors-connector</h3>
+          <span class="visibility">Private</span>
+        </div>
+        <div class="repo-info">
+          <p>🛡️ <span>Vulnerabilities:</span> <span class="badge critical">2 critical</span></p>
+          <p>🤖 <span>Dependabot:</span> <span class="badge high">3 alerts</span></p>
+          <p>🔑 <span>Secrets Scanning:</span> <span class="badge none">Inactive</span></p>
+          <p>🚧 <span>Branch Protection:</span> <span class="badge active">Enabled</span></p>
+          <p>🔄 <span>Dependency Review:</span> <span class="badge active">Enabled</span></p>
+          <p>👥 <span>Collaborators:</span> 5 external, 4 internal</p>
+          <p>⏱️ <span>Last Commit:</span> 5 days ago</p>
+        </div>
+      </div>
+
+      <!-- Example Repository Card 5 (Inactive Dependabot) -->
+      <div class="repo-card">
+        <div class="repo-header">
+          <h3>ui-path-connector</h3>
+          <span class="visibility">Public</span>
+        </div>
+        <div class="repo-info">
+          <p>🛡️ <span>Vulnerabilities:</span> <span class="badge high">2 high</span></p>
+          <p>🤖 <span>Dependabot:</span> <span class="badge none">Inactive</span></p>
+          <p>🔑 <span>Secrets Scanning:</span> <span class="badge active">Active</span></p>
+          <p>🚧 <span>Branch Protection:</span> <span class="badge active">Enabled</span></p>
+          <p>🔄 <span>Dependency Review:</span> <span class="badge active">Enabled</span></p>
+          <p>👥 <span>Collaborators:</span> 3 external, 6 internal</p>
+          <p>⏱️ <span>Last Commit:</span> 3 days ago</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

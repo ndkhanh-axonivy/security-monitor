@@ -1,1 +1,1 @@
-# security-monitor
+👉 [Static Page](./index.html)
